@@ -15,7 +15,7 @@ if [[ x"$NODE" == x ]]; then
   exit 1
 fi
 
-kubectl $CONTEXT --v=4 run netshoot-hostmount-$(uuidgen) --overrides='{
+kubectl $CONTEXT --v=4 run netshoot-hostmount-$(uuidgen | tr "[:upper:]" "[:lower:]") --overrides='{
 	"spec": {
 		"hostNetwork": true,
 		"nodeName": "'$NODE'",
